@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: url('bg/noise.png') repeat;
   background-color: #ECEEF1;
   font-family: AvenirNext,Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 400;
