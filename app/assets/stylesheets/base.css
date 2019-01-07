@@ -51,7 +51,7 @@ body{
   padding:0;
   box-shadow:0 0 4px 0 rgba(0,0,0,.2)
 }
-body,h1,h2,h3,h4,h5,h6,.button,input[type=button],input[type=submit],input[type=text],input[type=password],input[type=email],textarea,select{
+body,h1,h2,h3,h4,h5,h6,.button,input[type=button],input[type=submit],input[type=text],input[type=password],input[type=email],input[type=tel],textarea,select{
   font-family:open sans,helveticaneue,helvetica neue,Helvetica,Arial,sans-serif
 }
 #wrapper img{
@@ -221,7 +221,7 @@ ul.large li{
 li p{
   line-height:21px
 }
-input[type=text],input[type=password],input[type=email],textarea,select{
+input[type=text],input[type=password],input[type=email],input[type=tel],textarea,select{
   border:1px solid #e0e0e0;
   padding:8px 9px;
   outline:none;
@@ -238,7 +238,7 @@ input[type=text],input[type=password],input[type=email],textarea,select{
 select{
   padding:0
 }
-input[type=text]:focus,input[type=password]:focus,input[type=email]:focus,textarea:focus{
+input[type=text]:focus,input[type=password]:focus,input[type=email]:focus,input[type=tel]:focus,textarea:focus{
   border:1px solid #d6d6d6;
   color:#888
 }
