@@ -15,9 +15,16 @@
         <div class="container">
             <!-- Header -->
             <header id="header">
-
+                <!-- Logo -->
+                <div class="eight columns">
+                    <div id="logo">
+                        <h1><a href="#"><%= image_tag("fxlogo.png", id: "fx-logo", alt: "FX-SignalProvider") %></a></h1>
+                        <div id="tagline">Trade less. Win big.</div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
                 <!-- Social / Contact -->
-                <div class="sixteen columns">
+                <div class="eight columns">
 
                     <!-- Social Icons -->
                     <ul class="social-icons">
@@ -43,14 +50,6 @@
 
         <div class="clearfix"></div>
         <div class="container">
-        <!-- Logo -->
-        <div class="sixteen columns">
-            <div id="logo">
-                <h1><a href="#"><%= image_tag("fxlogo.png", id: "fx-logo", alt: "FX-SignalProvider") %></a></h1>
-                <div id="tagline">Trade less. Win big.</div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
         <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>"><%= value %></div>
         <% end %>
