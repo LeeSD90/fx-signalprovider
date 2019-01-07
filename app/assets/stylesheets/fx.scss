@@ -2,8 +2,19 @@
 
 .hidden { display: none; }
 
+#header{
+  margin-top: 10px;
+  #logo{
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+  }
+}
+
 #logo a img#fx-logo{
-  height: 80px;
+  height: 90px;
   width: 200px;
 }
 
@@ -14,8 +25,11 @@ img#fx-logo.sm{
   margin-bottom: 15px;
 }
 
-#contact {
+#contact.landing {
   display: block;
   width: 100%;
   margin-bottom: 10px;
+  .input{
+    margin-bottom: 10px;
+  }
 }
