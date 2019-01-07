@@ -28,11 +28,11 @@ img#fx-logo.sm{
 #contact.landing {
   display: block;
   width: 100%;
-  margin-bottom: 10px;
   .input{
     margin-bottom: 10px;
   }
   input[type=submit]{
     float: none;
+    margin-bottom: 10px;
   }
 }
