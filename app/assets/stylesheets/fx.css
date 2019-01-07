@@ -1,6 +1,14 @@
 /* FXSP */
 
+.hidden { display: none; }
+
 #logo a img#fx-logo{
   height: 80px;
   width: 200px;
+}
+
+#contact {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
 }

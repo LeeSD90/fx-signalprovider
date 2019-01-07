@@ -1,3 +1,20 @@
 <section id="contact">
-  Put a form here
+  <div align="center">
+  <h3>Sign Up for a Trial</h3>
+
+  <%= simple_form_for @landing, url: landing_index_path, :html => {:class => 'form-horizontal' } do |f| %>
+    <%= f.input :name, :required => true %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :phone %>
+    <%= f.input :call_me, as: :boolean %>
+    <%= f.input :message, :as => :text, :required => true %>
+    <div class= "hidden">
+      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+    <div>
+      </br>
+      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+    </div>
+  <% end %>
+  </div>
 </section>
