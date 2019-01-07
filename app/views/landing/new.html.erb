@@ -7,13 +7,13 @@
     <%= f.input :email, :required => true %>
     <%= f.input :phone %>
     <%= f.input :call_me, as: :boolean %>
-    <%= f.input :message, :as => :text, :required => true %>
+    <%= f.input :message, :as => :text %>
     <div class= "hidden">
       <%= f.input :nickname, :hint => 'Leave this field blank!' %>
     </div>
     <div>
       </br>
-      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+      <%= f.button :submit, 'Send message', :class=> "submit" %>
     </div>
   <% end %>
   </div>
