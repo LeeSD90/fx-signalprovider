@@ -10,6 +10,7 @@ class LandingController < ApplicationController
     @landing.request = request
     if @landing.deliver
       flash.now[:notice] = 'Thank you for signing up, we will contact you soon.'
+      render :new
     else
       flash.now[:error] = 'Error signing up.'
       render :new
