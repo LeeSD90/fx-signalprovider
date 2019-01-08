@@ -36,3 +36,36 @@ img#fx-logo.sm{
     margin-bottom: 10px;
   }
 }
+
+.error{
+  color: #b94a48;
+}
+
+.alert{
+  border: 1px solid;
+  padding: 5px;
+  &-success{
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+  }
+  &-notice{
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+  }
+  &-alert{
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+  }
+  &-error{
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+  }
+}
