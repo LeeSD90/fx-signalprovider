@@ -11,7 +11,7 @@ class Landing < MailForm::Base
   def headers
     {
       :subject => "New Signup - FX-SignalProvider",
-      :to => "lee.doyle90@gmail.com",
+      :to => ENV["MAIL_USERNAME"],
       :from => %("#{name}" <#{email}>)
     }
   end
