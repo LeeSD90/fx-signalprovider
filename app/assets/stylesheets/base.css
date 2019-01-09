@@ -208,10 +208,6 @@ ul.circle{
 ul.disc{
   list-style:disc outside
 }
-ul ul,ul ol,ol ol,ol ul{
-}
-ul ul li,ul ol li,ol ol li,ol ul li{
-}
 li{
   line-height:18px
 }
@@ -251,8 +247,6 @@ label,legend{
   font-size:13px;
   font-weight:400;
   margin-bottom:5px
-}
-select{
 }
 input[type=checkbox]{
   display:inline
