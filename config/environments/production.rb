@@ -14,8 +14,8 @@ Rails.application.configure do
   domain: ENV["MAIL_DOMAIN"],
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: ENV["MAIL_USERNAME"],
-  password: ENV["MAIL_PASSWORD"]
+  user_name: ENV["SENDGRID_USERNAME"],
+  password: ENV["SENDGRID_PASSWORD"]
   }
 
   # Code is not reloaded between requests.
