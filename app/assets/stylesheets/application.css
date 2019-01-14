@@ -12,5 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require base.css
+ *= require responsive.css
+ *= require icons.css
  *= require style.css
  */
