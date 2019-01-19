@@ -34,6 +34,7 @@ gem 'devise'
 gem 'mail_form'
 gem 'simple_form'
 gem 'figaro'
+gem 'country_select'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
