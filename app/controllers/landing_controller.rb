@@ -7,6 +7,7 @@ class LandingController < ApplicationController
 
   def create
     @landing = Landing.new(params[:landing])
+    @landing.country = @landing.country_name
     @landing.request = request
     if @landing.deliver
       flash.now[:notice] = 'Thank you for signing up, we will contact you soon.'
@@ -16,4 +17,5 @@ class LandingController < ApplicationController
       render :new
     end
   end
+
 end
