@@ -7,7 +7,9 @@
     <%= f.input :email, :required => true %>
     <%= f.input :phone %>
     <%= f.input :call_me, as: :boolean, inline_label: 'Call me with information' %>
+    <%= f.input :country, :required => true %>
     <%= f.input :message, :as => :text %>
+
     <div class= "hidden">
       <%= f.input :nickname, :hint => 'Leave this field blank!' %>
     </div>
