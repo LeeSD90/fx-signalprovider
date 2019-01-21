@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources "landing", only: [:new, :create]
 
   get "/static_pages/:static_page" => "static_pages#show"
+
+  get '*path' => "application#render_404"
 end
