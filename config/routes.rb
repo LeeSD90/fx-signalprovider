@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   match '/landing', to: 'landing#new', via: 'get'
   resources "landing", only: [:new, :create]
 
-  get "/static_pages/:static_page" => "static_pages#show"
+  get "/:static_page" => "static_pages#show"
 
   get '*path' => "application#render_404"
 end
