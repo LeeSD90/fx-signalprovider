@@ -19,6 +19,7 @@ class Landing < MailForm::Base
 
   def country_name
     c = ISO3166::Country[self.country]
-    return c.translations[I18n.locale.to_s] || c.name
+    if c.nil? then return "Not given"
+    else return c.translations[I18n.locale.to_s] || c.name end
   end
 end
