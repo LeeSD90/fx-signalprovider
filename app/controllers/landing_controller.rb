@@ -6,7 +6,7 @@ class LandingController < ApplicationController
   end
 
   def create
-    @landing = Landing.new(params[:landing])
+    @landing = Landing.new(landing_params)
     @landing.country = @landing.country_name
     @landing.request = request
     if @landing.deliver
@@ -17,5 +17,11 @@ class LandingController < ApplicationController
       render :new
     end
   end
+
+  private
+
+    def landing_params
+      params.require(:landing).permit(:name, :email, :phone, :call_me, :country, :message, :nickname)
+    end
 
 end
