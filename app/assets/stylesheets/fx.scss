@@ -16,8 +16,9 @@ section#contact.landing{
   height: 3px;
 }
 
-#header{
+header#header{
   margin-top: 10px;
+  min-height: 115px;
   #logo{
     margin-top: 0;
     display: flex;
