@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get "/:static_page" => "static_pages#show"
+  get "/:static_page" => "static_pages#show", :as => "static_page"
 
   get '*path' => "application#render_404"
 end
