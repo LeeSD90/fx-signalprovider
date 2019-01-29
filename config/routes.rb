@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root 'landing#new'
-  devise_for :users
-
-  match '/landing', to: 'landing#new', via: 'get'
   resources "landing", only: [:new, :create]
+
+  devise_for :users
 
   get "/:static_page" => "static_pages#show"
 
