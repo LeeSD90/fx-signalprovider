@@ -29,9 +29,9 @@
 			<div class="clearfix"></div>
 
 			<!-- Contact Details -->
-			<div class="contact-details">Contact Phone: +48 880 440 110</div>
-
+			<div class="contact-details">Phone: +48 880 440 110</div>
 			<div class="clearfix"></div>
+			<div class="contact-details">Email: <%= mail_to "support@fx-signalprovider.com" %></div>
 
 		</div>
 	</header>
@@ -77,3 +77,23 @@
 </ul>
 </nav>
 <div class="clearfix"></div>
+
+<!-- 960 Container -->
+<div class="container floated">
+
+	<div class="sixteen floated page-title">
+
+		<h2><%= yield(:title) %></h2>
+
+		<nav id="breadcrumbs">
+			<ul>
+				<li>You are here:</li>
+				<li><a href="index.html">Home</a></li>
+				<li><%= yield(:title) %></li>
+			</ul>
+		</nav>
+
+	</div>
+
+</div>
+<!-- 960 Container / End -->
