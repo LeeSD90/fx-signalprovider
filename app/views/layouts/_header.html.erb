@@ -51,27 +51,41 @@
 <div class="right-corner"></div>
 
 <ul class="menu" id="responsive">
-	<li><a href="index.html" id="current"><i class="halflings white home"></i> Home</a></li>
-
-	<li><a href="about.html"><i class="halflings white file"></i> About Us</a>
-	</li>
-
-	<li><a href="videos.html"><i class="halflings white facetime-video"></i> Videos</a>
+	<li>
+		<%= link_to static_page_path('home'), :id => current_class?(static_page_path('home')) do %>
+			<i class="halflings white file"></i>Home
+		<% end %>
 	</li>
 	
-	<li><a href="shop.html"><i class="halflings white shopping-cart"></i> Shop</a>
-		<!-- Second Level / Start -->
-		<ul>
-			<li><a href="shop.html">Shop</a></li>
-			<li><a href="product-page.html">Product Page</a></li>
-		</ul>
-		<!-- Second Level / End -->
+	<li>
+		<%= link_to static_page_path('about'), :id => current_class?(static_page_path('about')) do %>
+			<i class="halflings white file"></i>About Us
+		<% end %>
 	</li>
 
-	<li><a href="articles.html"><i class="halflings white pencil"></i> Articles</a>
+	<li>
+		<%= link_to static_page_path('videos'), :id => current_class?(static_page_path('videos')) do %>
+			<i class="halflings white file"></i>Videos
+		<% end %>
+	</li>
+	
+	<li>
+		<%= link_to static_page_path('services'), :id => current_class?(static_page_path('services')) do %>
+			<i class="halflings white file"></i>Services
+		<% end %>
 	</li>
 
-	<li><a href="technical.html"><i class="halflings white book"></i> Technical Analysis</a></li>
+	<li>
+		<%= link_to static_page_path('articles'), :id => current_class?(static_page_path('articles')) do %>
+			<i class="halflings white file"></i>Articles
+		<% end %>
+	</li>
+
+	<li>
+		<%= link_to static_page_path('technical'), :id => current_class?(static_page_path('technical')) do %>
+			<i class="halflings white file"></i>Technical Analysis
+		<% end %>
+	</li>
 
 </ul>
 </nav>
