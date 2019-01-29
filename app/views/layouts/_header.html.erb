@@ -11,7 +11,9 @@
 		<!-- Logo -->
 		<div class="ten columns">
 			<div id="logo">
-				<h1><a href="#"><%= image_tag("fxlogo.png", id: "fx-logo", alt: "FX-SignalProvider") %></a></h1>
+				<h1>
+					<%= link_to image_tag("fxlogo.png", id: "fx-logo", alt: "FX-SignalProvider"), static_page_path("home") %>
+				</h1>
 				<div id="tagline">Trade less. Win big.</div>
 				<div class="clearfix"></div>
 			</div>
@@ -53,31 +55,31 @@
 <ul class="menu" id="responsive">
 	<li>
 		<%= link_to static_page_path('home'), :id => current_class?(static_page_path('home')) do %>
-			<i class="halflings white file"></i>Home
+			<i class="halflings white home"></i>Home
 		<% end %>
 	</li>
 	
 	<li>
 		<%= link_to static_page_path('about'), :id => current_class?(static_page_path('about')) do %>
-			<i class="halflings white file"></i>About Us
+			<i class="halflings white info-sign"></i>About Us
 		<% end %>
 	</li>
 
 	<li>
 		<%= link_to static_page_path('videos'), :id => current_class?(static_page_path('videos')) do %>
-			<i class="halflings white file"></i>Videos
+			<i class="halflings white facetime-video"></i>Videos
 		<% end %>
 	</li>
 	
 	<li>
 		<%= link_to static_page_path('services'), :id => current_class?(static_page_path('services')) do %>
-			<i class="halflings white file"></i>Services
+			<i class="halflings white shopping-cart"></i>Services
 		<% end %>
 	</li>
 
 	<li>
 		<%= link_to static_page_path('articles'), :id => current_class?(static_page_path('articles')) do %>
-			<i class="halflings white file"></i>Articles
+			<i class="halflings white pencil"></i>Articles
 		<% end %>
 	</li>
 
