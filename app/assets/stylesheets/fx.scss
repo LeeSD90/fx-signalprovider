@@ -88,3 +88,14 @@ img#fx-logo.sm{
     text-align: left;
   }
 }
+
+.menu li.float-r{
+  float: right;
+  a {
+    border-left: 1px solid #666;
+    border-right: none
+  }
+  a:last-child {
+    border-right: 1px solid #666;
+  }
+}
