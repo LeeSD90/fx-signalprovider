@@ -89,7 +89,7 @@ img#fx-logo.sm{
   }
 }
 
-.menu li.float-r{
+.menu li.float-r {
   float: right;
   a {
     border-left: 1px solid #666;
@@ -100,7 +100,7 @@ img#fx-logo.sm{
   }
 }
 
-#devise-content{
+#devise-content {
   padding: 3em;
   h2 {
     margin-bottom: 20px;
@@ -113,6 +113,22 @@ img#fx-logo.sm{
   }
 }
 
-#devise-links{
+#devise-links {
   margin-top: 15px;
+}
+
+@media only screen and (max-width: 768px){
+  nav#navigation {
+    ul#responsive {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px){
+  nav#navigation {
+    select {
+      display: none;
+    }
+  }
 }
