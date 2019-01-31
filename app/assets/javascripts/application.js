@@ -13,3 +13,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.min.js
+//= require jquery.selectnav.js
+//= require custom.js
