@@ -92,13 +92,13 @@
 -->
 
 	<% if user_signed_in? %>
-	<li class="float-r">
-		<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-	</li>
-	<% else %>
-	<li class="float-r">
-		<%= link_to "Log In", new_user_session_path %>
-	</li>
+		<li class="float-r">
+			<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+		</li>
+		<% else %>
+		<li class="float-r">
+			<%= link_to "Log In", new_user_session_path %>
+		</li>
 	<% end %>
 
 </ul>
