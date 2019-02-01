@@ -15,4 +15,9 @@
 //= require_tree .
 //= require jquery.min.js
 //= require jquery.selectnav.js
+//= require jquery.fancybox.min.js
+//= require jquery.isotope.min.js
+//= require jquery.layerslider-transitions.js
+//= require jquery.layerslider.min.js
+//= require jquery.flexslider.js
 //= require custom.js
