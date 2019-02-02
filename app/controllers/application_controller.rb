@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
     def admin_only
       if !current_user.try(:admin?)
-        flash.now[:error] = 'Admin Access Only.'
+        flash[:error] = 'Admin Access Only.'
         redirect_to root_path
       end
     end
