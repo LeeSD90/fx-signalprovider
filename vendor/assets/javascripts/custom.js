@@ -4,7 +4,7 @@
 
 /* ----------------- Start Document ----------------- */
 (function($){
-	$(document).ready(function(){
+	$(document).on('turbolinks:load', (function(){
 
 /*----------------------------------------------------*/
 /*	Navigation
@@ -419,7 +419,7 @@ $(window).resize(function () {
 
 
 /* ------------------ End Document ------------------ */
-});
+}));
 
 })(this.jQuery);
 
