@@ -10,9 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require turbolinks
-//= require_tree .
+
 //= require jquery.min.js
 //= require jquery.selectnav.js
 //= require jquery.fancybox.min.js
@@ -21,3 +19,6 @@
 //= require jquery.layerslider.min.js
 //= require jquery.flexslider.js
 //= require custom.js
+//= require turbolinks
+//= require rails-ujs
+//= require_tree .
