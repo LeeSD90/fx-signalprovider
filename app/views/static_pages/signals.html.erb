@@ -1,4 +1,5 @@
 ﻿<% provide(:title, 'Forex Signals') %>
+<% plan_names = Plan.all.map { |p| [p.name + " - $" + p.price.to_s] } %>
 <!-- 960 Container -->
 <div class="container floated">
 
@@ -17,14 +18,12 @@
 			<div class="six columns">
 				<div class="product-info">
 					<h3 class="title">Forex Signals</h3>
-					<span class="price">Starting at $60/month</span>
+					<span class="price">Starting at $<%= Plan.first.price %>/month</span>
 					<p>Etiam lobortis dolor eros sed lorem sodales imperdiet dapibus. Maecenas faucibus urna sed turpis lacinia consectetur. Mauris dolor bibendum nibh consectetuer.</p>
 					
-
 					<%= form_tag new_subscription_path, method: "get" do %>
-						<%= select_tag "plan", "<option value='1'>1 Month - $60</option>
-																		 <option value='2'>6 Months - $340</option>
-																		 <option value='3'>12 Months - $680</option>".html_safe %>
+						
+						<%= select_tag 'plan', options_for_select(plan_names) %>
 						<%= submit_tag("Subscribe") %>
 					<% end %>
 					
