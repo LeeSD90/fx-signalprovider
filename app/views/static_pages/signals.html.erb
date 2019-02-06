@@ -16,17 +16,22 @@
 
 			<div class="six columns">
 				<div class="product-info">
-					<h3 class="title">Digital Camera</h3>
-					<span class="price">$499</span>
+					<h3 class="title">Forex Signals</h3>
+					<span class="price">Starting at $60/month</span>
 					<p>Etiam lobortis dolor eros sed lorem sodales imperdiet dapibus. Maecenas faucibus urna sed turpis lacinia consectetur. Mauris dolor bibendum nibh consectetuer.</p>
 
 					<div class="product-amount">
-						<input type="text" value="1"/>
-						<div class="increase-value"><span class="icon-plus"></span></div>
+						<select>
+							<option value="1">1 Month - $60</option>
+							<option value="2">6 Months - $340</option>
+							<option value="3">12 Months - $680</option>
+						</select>
 					</div>
 					
 					<div class="clearfix"></div>
-					
+					<div id="paypal_checkout" >
+  					<%= image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif") %>
+					</div>
 					<a href="#" class="button color">Add to Cart</a>
 				</div>
 			</div>
