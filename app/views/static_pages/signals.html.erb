@@ -19,20 +19,18 @@
 					<h3 class="title">Forex Signals</h3>
 					<span class="price">Starting at $60/month</span>
 					<p>Etiam lobortis dolor eros sed lorem sodales imperdiet dapibus. Maecenas faucibus urna sed turpis lacinia consectetur. Mauris dolor bibendum nibh consectetuer.</p>
+					
 
-					<div class="product-amount">
-						<select>
-							<option value="1">1 Month - $60</option>
-							<option value="2">6 Months - $340</option>
-							<option value="3">12 Months - $680</option>
-						</select>
-					</div>
+					<%= form_tag new_subscription_path, method: "get" do %>
+						<%= select_tag "plan", "<option value='1'>1 Month - $60</option>
+																		 <option value='2'>6 Months - $340</option>
+																		 <option value='3'>12 Months - $680</option>".html_safe %>
+						<%= submit_tag("Subscribe") %>
+					<% end %>
 					
 					<div class="clearfix"></div>
-					<div id="paypal_checkout" >
-  					<%= image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif") %>
-					</div>
-					<a href="#" class="button color">Add to Cart</a>
+
+					
 				</div>
 			</div>
 			
