@@ -35,6 +35,7 @@ gem 'mail_form'
 gem 'simple_form'
 gem 'figaro'
 gem 'country_select'
+gem 'paypal-recurring'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
