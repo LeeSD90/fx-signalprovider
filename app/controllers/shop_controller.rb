@@ -1,11 +1,10 @@
 class ShopController < ApplicationController
-  before_action :admin_only
+  before_action :admin_only, :set_plans
 
-  def services
-    @plans = Plan.all
-  end
+  private
 
-  def signals
-    @plans = Plan.all
-  end
+    def set_plans
+      @plans = Plan.all
+    end
+
 end
