@@ -17,11 +17,11 @@
 			<div class="six columns">
 				<div class="product-info">
 					<h3 class="title">Forex Signals</h3>
-					<span class="price">Starting at $<%= Plan.first.price %>/month</span>
+					<span class="price">Starting at $<%= @plans.first.price %>/month</span>
 					<p>Etiam lobortis dolor eros sed lorem sodales imperdiet dapibus. Maecenas faucibus urna sed turpis lacinia consectetur. Mauris dolor bibendum nibh consectetuer.</p>
 					
 					<%= form_tag new_subscription_path, method: "get" do %>
-						<%= select_tag 'plan', options_from_collection_for_select(Plan.all, :id, :name_with_price) %>
+						<%= select_tag 'plan', options_from_collection_for_select(@plans, :id, :name_with_price) %>
 						<%= submit_tag("Subscribe") %>
 					<% end %>
 					
