@@ -37,7 +37,7 @@ plan = Plan.create(
   :interval   => "month",
   :duration   => 3,
   :currency   => "USD",
-  :price      => 340
+  :price      => 140
 )
 
 plan = Plan.create(
@@ -45,5 +45,5 @@ plan = Plan.create(
   :interval   => "month",
   :duration   => 6,
   :currency   => "USD",
-  :price      => 680
+  :price      => 320
 )
