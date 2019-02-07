@@ -22,7 +22,7 @@
 							<%= link_to static_page_path('signals') do %>
 								<h5>Forex Signals</h4>
 							<% end %>
-							<span>Starting at $60</span>
+							<span>Starting at $<%= Plan.first.price %>/month</span>
 							<%= link_to "Order Now", static_page_path('signals'), :class => "button color" %>
 						</figcaption>
 					</figure>

@@ -1,5 +1,4 @@
 ﻿<% provide(:title, 'Forex Signals') %>
-<% plan_names = Plan.all.map { |p| [p.name + " - $" + p.price.to_s] } %>
 <!-- 960 Container -->
 <div class="container floated">
 
@@ -22,14 +21,12 @@
 					<p>Etiam lobortis dolor eros sed lorem sodales imperdiet dapibus. Maecenas faucibus urna sed turpis lacinia consectetur. Mauris dolor bibendum nibh consectetuer.</p>
 					
 					<%= form_tag new_subscription_path, method: "get" do %>
-						
-						<%= select_tag 'plan', options_for_select(plan_names) %>
+						<%= select_tag 'plan', options_from_collection_for_select(Plan.all, :id, :name_with_price) %>
 						<%= submit_tag("Subscribe") %>
 					<% end %>
 					
 					<div class="clearfix"></div>
 
-					
 				</div>
 			</div>
 			
