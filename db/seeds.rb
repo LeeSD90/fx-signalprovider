@@ -6,19 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create_with(
+user = User.find_or_create_by(email: ENV["ADMIN1_MAIL"])
+user.assign_attributes(
   :email                 => ENV["ADMIN1_MAIL"],
   :password              => ENV["ADMIN1_PASSWORD"],
   :password_confirmation => ENV["ADMIN1_PASSWORD"],
   :admin                 => true
-).find_or_create_by(email: ENV["ADMIN1_MAIL"])
+)
+user.skip_confirmation!
+user.save
 
-user = User.create_with(
+user = User.find_or_create_by(email: ENV["ADMIN2_MAIL"])
+user.assign_attributes(
   :email                 => ENV["ADMIN2_MAIL"],
   :password              => ENV["ADMIN1_PASSWORD"],
   :password_confirmation => ENV["ADMIN1_PASSWORD"],
   :admin                 => true
-).find_or_create_by(email: ENV["ADMIN2_MAIL"])
+)
+user.skip_confirmation!
+user.save
 
 p = Plan.find_or_create_by(id: 1)
 p.update_attributes(
@@ -28,7 +34,6 @@ p.update_attributes(
   :currency   => "USD",
   :price      => 60
 )
-
 
 p = Plan.find_or_create_by(id: 2)
 p.update_attributes(
