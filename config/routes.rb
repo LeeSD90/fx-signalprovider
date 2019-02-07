@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :landing, only: [:new, :create]
   resources :subscriptions, only: :new
   devise_for :users
-  get "/:static_page" => "static_pages#show", :as => "static_page"
-  get "paypal/checkout", to: "subscriptions#paypal_checkout"
-  get '*path' => "application#render_404"
 
+  get "paypal/checkout", to: "subscriptions#paypal_checkout"
+  get "/:static_page" => "static_pages#show", :as => "static_page"
+  get '*path' => "application#render_404"
 end
