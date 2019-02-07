@@ -6,5 +6,19 @@ class Plan < ApplicationRecord
 
   validates_presence_of VALIDATABLE_ATTRS
 
+  def name_with_price
+    "#{name} - " + currency_symbol + "#{price}"
+  end
 
+  def currency_symbol
+    case currency
+    when "EUR"
+      "€"
+    when "GBP"
+      "£"
+    when "USD"
+      "$"
+    else "Undefined Currency"
+    end
+  end
 end
