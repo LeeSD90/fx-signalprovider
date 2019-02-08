@@ -1,6 +1,12 @@
 <% provide(:title, "Subscribe") %>
-<h1>Subscribe on a <%= params[:plan] %> month plan</h1>
+  <div class="container floated">
+    <div class="sixteen floated">
+      <div class="page-content">
+        <h2>Subscribe for a <%= @plan.name %></h2>
 
-<div id="paypal_checkout" >
-  <%= image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif") %>
-</div>
+        <div id="paypal_checkout" >
+          <%= image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif") %>
+        </div>
+      </div>
+    </div>
+  </div>
