@@ -3,8 +3,12 @@ class SubscriptionsController < ApplicationController
   
   def new
     @subscription = Subscription.new
+    @plan = Plan.find_by_id(params[:plan])
+
+    redirect_to root_path, :flash => { :error => 'Record not found' } unless @plan
   end
 
   def paypal_checkout
   end
+
 end
