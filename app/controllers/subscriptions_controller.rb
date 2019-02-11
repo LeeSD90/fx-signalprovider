@@ -11,11 +11,11 @@ class SubscriptionsController < ApplicationController
   def paypal_checkout
     plan = Plan.find(params[:plan_id])
     ppr = Paypal::Recurring.new(
-      return_url: ,
-      cancel_url: ,
-      description: ,
-      amount: ,
-      currency: 
+      return_url: new_subscription_path(:plan_id => plan.id),
+      cancel_url: root_path,
+      description: plan.name,
+      amount: plan.price,
+      currency: plan.currency 
     )
 
     response = ppr.checkout
