@@ -16,21 +16,11 @@ class SubscriptionsController < ApplicationController
 
   def paypal_checkout
     plan = Plan.find(params[:plan_id])
-    ppr = PayPal::Recurring.new(
+    subscription = plan.subscriptions.build
+    redirect_to subscription.paypal.checkout_url(
       return_url: new_subscription_url(:plan_id => plan.id),
-      cancel_url: root_url,
-      description: plan.name,
-      amount: plan.price,
-      currency: plan.currency 
+      cancel_url: root_url
     )
-
-    response = ppr.checkout
-
-    if response.valid?
-      redirect_to response.checkout_url
-    else 
-      raise response.errors.inspect
-    end
   end
 
 end
