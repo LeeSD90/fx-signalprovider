@@ -6,6 +6,11 @@ class SubscriptionsController < ApplicationController
     @subscription = @plan.subscriptions.build
 
     redirect_to root_path, :flash => { :error => 'Record not found' } unless @plan
+
+    if params[:PayerID]
+      @subscription.paypal_customer_token = params[:PayerID]
+      @subscription.paypal_payment_token = params[:token]
+    end
   end
 
   def paypal_checkout
