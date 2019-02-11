@@ -29,7 +29,7 @@ user.save
 p = Plan.find_or_create_by(id: 1)
 p.update_attributes(
   :name       => "1 Month Plan",
-  :interval   => "month",
+  :interval   => "monthly",
   :duration   => 1,
   :currency   => "USD",
   :price      => 60
@@ -38,7 +38,7 @@ p.update_attributes(
 p = Plan.find_or_create_by(id: 2)
 p.update_attributes(
   :name       => "3 Month Plan",
-  :interval   => "month",
+  :interval   => "monthly",
   :duration   => 3,
   :currency   => "USD",
   :price      => 140
@@ -47,7 +47,7 @@ p.update_attributes(
 p = Plan.find_or_create_by(id: 3)
 p.update_attributes(
   :name       => "6 Month Plan",
-  :interval   => "month",
+  :interval   => "monthly",
   :duration   => 6,
   :currency   => "USD",
   :price      => 320
