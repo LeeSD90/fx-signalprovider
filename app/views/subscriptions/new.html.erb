@@ -3,10 +3,15 @@
     <div class="sixteen floated">
       <div class="page-content">
         <h2>Subscribe for a <%= @plan.name %></h2>
-
-        <div id="paypal_checkout" >
-          <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), paypal_checkout_path(:plan_id => @subscription.plan_id) %>
-        </div>
+        <%= hidden_field :subscription, :paypal_customer_token %>
+        <%= hidden_field :subscription, :paypal_payment_token %>
+        <% if @subscription.paypal_payment_token.present? %>
+          Payment has been provided. Click &amp;ldquo;Subscribe&amp;rdquo; to complete the subscription.
+        <% else %>          
+          <div id="paypal_checkout" >
+            <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), paypal_checkout_path(:plan_id => @subscription.plan_id) %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
