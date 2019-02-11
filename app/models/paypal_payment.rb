@@ -12,13 +12,17 @@ class PaypalPayment
     process(:checkout, options).checkout_url
   end
 
+  def cancel_recurring
+    process :cancel
+  end
+
   def make_recurring
     process :request_payment
     process :create_recurring_profile, period: @subscription.plan.interval, frequency: @subscription.plan.duration, start_at: Time.zone.now
   end
 
   private
-    
+
     def process(action, options = {})
       options = options.reverse_merge(
         token: @subscription.paypal_payment_token,
