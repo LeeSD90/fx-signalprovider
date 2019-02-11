@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :admin_only
+  before_action :authenticate_user!, only: [:paypal_checkout]
   
   def new
     @plan = Plan.find_by_id(params[:plan_id])
