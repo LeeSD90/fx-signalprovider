@@ -3,10 +3,10 @@ class SubscriptionsController < ApplicationController
   
   def new
     @plan = Plan.find_by_id(params[:plan_id])
+    redirect_to root_path, :flash => { :error => 'Record not found' } unless @plan
+
     @subscription = @plan.subscriptions.build
     @subscription.user = current_user
-
-    redirect_to root_path, :flash => { :error => 'Record not found' } unless @plan
 
     if params[:PayerID]
       @subscription.paypal_customer_token = params[:PayerID]
