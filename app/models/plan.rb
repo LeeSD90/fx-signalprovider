@@ -1,5 +1,5 @@
 class Plan < ApplicationRecord
-  has_many :subscriptions
+  has_many :subscriptions, :dependent => :destroy
   
   NON_VALIDATABLE_ATTRS = ["id", "created_at", "updated_at"]
   VALIDATABLE_ATTRS = Plan.attribute_names.reject{|attr| NON_VALIDATABLE_ATTRS.include?(attr)}
