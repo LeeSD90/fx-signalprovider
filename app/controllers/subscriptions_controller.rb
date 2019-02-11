@@ -2,15 +2,15 @@ class SubscriptionsController < ApplicationController
   before_action :admin_only
   
   def new
-    @subscription = Subscription.new
-    @plan = Plan.find_by_id(params[:plan])
+    @plan = Plan.find_by_id(params[:plan_id])
+    @subscription = @plan.subscriptions.build
 
     redirect_to root_path, :flash => { :error => 'Record not found' } unless @plan
   end
 
   def paypal_checkout
     plan = Plan.find(params[:plan_id])
-    ppr = Paypal::Recurring.new(
+    ppr = PayPal::Recurring.new(
       return_url: new_subscription_path(:plan_id => plan.id),
       cancel_url: root_path,
       description: plan.name,
@@ -23,7 +23,7 @@ class SubscriptionsController < ApplicationController
     if response.valid?
       redirect_to response.checkout_url
     else
-      rais response.errors.inspect
+      raise response.errors.inspect
     end
   end
 
