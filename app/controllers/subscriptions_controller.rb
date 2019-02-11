@@ -24,7 +24,6 @@ class SubscriptionsController < ApplicationController
       currency: plan.currency 
     )
 
-    puts ppr.inspect
     response = ppr.checkout
 
     if response.valid?

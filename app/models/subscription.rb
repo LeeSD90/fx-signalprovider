@@ -14,7 +14,7 @@ class Subscription < ApplicationRecord
     )
 
     response = ppr.request_payment
-    response.inspect
+
     if response.errors.present?
       raise response.errors.inspect
     end
