@@ -9,6 +9,8 @@ class Subscription < ApplicationRecord
   end
 
   def save_with_paypal_payment
-    paypal.make_recurring
+    response = paypal.make_recurring
+    self.paypal_recurring_profile_token = response.profile_id
+    save!
   end
 end
