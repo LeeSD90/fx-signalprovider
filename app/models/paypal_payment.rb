@@ -29,7 +29,8 @@ class PaypalPayment
         payer_id: @subscription.paypal_customer_token,
         description: @subscription.plan.name,
         amount: @subscription.plan.price,
-        currency: @subscription.plan.currency
+        currency: @subscription.plan.currency,
+        ipn: "https://fx-signalprovider.com/paypal_payment_notifications"
       )
 
       response = PayPal::Recurring.new(options).send(action)
