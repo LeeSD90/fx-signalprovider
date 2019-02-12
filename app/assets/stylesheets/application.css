@@ -12,8 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require spinner.css
  *= require base.css
  *= require responsive.css
  *= require icons.css
  *= require style.css
+
  */
