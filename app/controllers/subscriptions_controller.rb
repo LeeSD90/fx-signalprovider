@@ -13,6 +13,7 @@ class SubscriptionsController < ApplicationController
       @subscription.paypal_customer_token = params[:PayerID]
       @subscription.paypal_payment_token = params[:token]
       @subscription.save_with_paypal_payment
+      flash.now[:success] = "You have successfully subscribed to the forex signalling service!"
     end
   end
 
