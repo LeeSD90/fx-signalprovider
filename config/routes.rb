@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'landing#new'
   resources :landing, only: [:new, :create]
   resources :subscriptions, only: :new
+  resources :paypal_payment_notifications, only: [:create]
   devise_for :users
 
   get "/signals", to: "shop#signals"
