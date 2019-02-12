@@ -30,7 +30,7 @@ class PaypalPayment
         description: @subscription.plan.name,
         amount: @subscription.plan.price,
         currency: @subscription.plan.currency,
-        ipn: "https://fx-signalprovider.com/paypal_payment_notifications"
+        ipn_url: "https://fx-signalprovider.com/paypal_payment_notifications"
       )
 
       response = PayPal::Recurring.new(options).send(action)
