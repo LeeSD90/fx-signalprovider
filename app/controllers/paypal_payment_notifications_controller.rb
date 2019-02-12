@@ -1,6 +1,6 @@
 class PaypalPaymentNotificationsController < ApplicationController
   protect_from_forgery :except => [:create]
-  
+
   def create
     response = validate_IPN_notification(request.raw_post)
 
@@ -13,7 +13,7 @@ class PaypalPaymentNotificationsController < ApplicationController
       #error
     end
 
-    render :nothing => true
+    head :ok
   end
 
   protected
