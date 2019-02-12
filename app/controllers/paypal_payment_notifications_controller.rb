@@ -1,0 +1,2 @@
+class PaypalPaymentNotificationsController < ApplicationController
+end
