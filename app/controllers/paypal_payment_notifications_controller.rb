@@ -6,8 +6,17 @@ class PaypalPaymentNotificationsController < ApplicationController
 
     case response
     when "VERIFIED"
+      puts "blaaaaaaaaaaaaaaHHh"
+      puts response.txn_type
+      puts response.inspect.txn_type
+      puts "blahhhhhhhhhhhhhhhhhend"
       puts response.inspect
+      ## Do verification stuff
+      ## Check txn_types
+      ## Take action
+      ## Write to file?
     when "INVALID"
+      ## Write to file?
       puts response.inspect
     else
       #error
