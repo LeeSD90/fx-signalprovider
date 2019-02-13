@@ -3,11 +3,10 @@ class PaypalPaymentNotificationsController < ApplicationController
 
   def create
     response = validate_IPN_notification(request.raw_post)
-    puts response
     case response
     when "VERIFIED"
-      puts response.inspect
-      puts response.inspect.txn_type
+      puts request.inspect
+      puts request.txn_type
       ## Do verification stuff
       ## Check txn_types
       ## Take action
