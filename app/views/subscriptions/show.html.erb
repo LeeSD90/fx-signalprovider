@@ -1,9 +1,28 @@
 <% provide(:title, "Your Subscription") %>
-  <div class="container floated">
-    <div class="sixteen floated">
-      <div class="page-content">
-        
-        <%= @subscription.inspect %>
+<div class="page-content">
+  <div class="container">
+    <div class="sixteen columns">
+      <h3 class="margin-reset">Subscription Details</h3><br />
+        <table class="standard-table">
+
+          <tr>
+            <th>Plan Type</th>
+            <th>Price</th>
+            <th>Next Billing Date</th>
+            <th>Subscribed at</th>
+          </tr>
+
+          <tr>
+            <td><%= @subscription.plan.name %></td>
+            <td><%= @subscription.plan.currency_symbol + @subscription.plan.price.to_s %></td>
+            <td> TODO </td>
+            <td><%= @subscription.created_at %></td>
+          </tr>
+
+			  </table>
+
+        <%= link_to "Change Your Plan", subscription_path, :class => "button color" %>
+        <%= link_to "Cancel Your Subscription", subscription_path, :class => "button color" %>
         
     </div>
   </div>
