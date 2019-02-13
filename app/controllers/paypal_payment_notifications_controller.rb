@@ -5,16 +5,24 @@ class PaypalPaymentNotificationsController < ApplicationController
     response = validate_IPN_notification(request.raw_post)
     case response
     when "VERIFIED"
-      puts params[:txn_type]
       ## Do verification stuff
       ## Check txn_types
       ## Take action
       ## Write to file?
+      if params[:receiver_email] == ENV['PAYPAL_EMAIL']
+        case params[:txn_type]
+        when "recurring_payment_profile_cancel"
+          subscription = Subscription.where(paypal_recurring_profile_token: params[:recurring_payment_id]).first
+          subscription.destroy
+        when
+        else
+        end
+      end
     when "INVALID"
       ## Write to file?
-      puts response.inspect
+      puts "Invalid response from IPN validator!"
     else
-      puts "erorrrrrrrrrrrrrrrrrrerererE?"
+      puts "Error!"
       #error
     end
 
