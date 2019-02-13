@@ -3,14 +3,11 @@ class PaypalPaymentNotificationsController < ApplicationController
 
   def create
     response = validate_IPN_notification(request.raw_post)
-
+    puts response
     case response
     when "VERIFIED"
-      puts "blaaaaaaaaaaaaaaHHh"
-      puts response.txn_type
-      puts response.inspect.txn_type
-      puts "blahhhhhhhhhhhhhhhhhend"
       puts response.inspect
+      puts response.inspect.txn_type
       ## Do verification stuff
       ## Check txn_types
       ## Take action
@@ -19,6 +16,7 @@ class PaypalPaymentNotificationsController < ApplicationController
       ## Write to file?
       puts response.inspect
     else
+      puts "erorrrrrrrrrrrrrrrrrrerererE?"
       #error
     end
 
@@ -28,7 +26,7 @@ class PaypalPaymentNotificationsController < ApplicationController
   protected
 
     def validate_IPN_notification(raw)
-      uri = URI.parse('https://ipnpb.sandbox.paypal.com/cgi-bin/webscr')
+      uri = URI.parse('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate')
       http = Net::HTTP.new(uri.host, uri.port)
       http.open_timeout = 60
       http.read_timeout = 60
