@@ -13,7 +13,7 @@ class PaypalPayment
   end
 
   def cancel_recurring
-    process :cancel
+    process :cancel, profile_id: @subscription.paypal_recurring_profile_token
   end
 
   def make_recurring

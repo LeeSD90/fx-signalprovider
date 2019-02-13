@@ -9,7 +9,7 @@ class Subscription < ApplicationRecord
   end
 
   def cancel_with_paypal_payment
-    if valid? && paypal_payment_token.present?
+    if valid?
       response = paypal.cancel_recurring
       save!
     end
