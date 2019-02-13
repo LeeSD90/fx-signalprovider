@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :admin_only
-  before_action :authenticate_user!, only: [:paypal_checkout]
+  before_action :authenticate_user!, only: [:paypal_checkout, :show]
   
   def new
     @plan = Plan.find_by_id(params[:plan_id])
@@ -14,6 +14,15 @@ class SubscriptionsController < ApplicationController
       @subscription.paypal_payment_token = params[:token]
       @subscription.save_with_paypal_payment
       flash.now[:success] = "You have successfully subscribed to the forex signalling service!"
+    end
+  end
+
+  def show
+    if current_user.subscribed?
+      @subscription = current_user.subscription
+    else
+      flash[:error] = "You do not currently have an active subscription"
+      redirect_to signals_path
     end
   end
 
