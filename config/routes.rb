@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :paypal_payment_notifications, only: [:create]
   devise_for :users
 
+  get "/subscription", to: "subscriptions#show"
   get "/signals", to: "shop#signals"
   get "/services", to: "shop#services"
   get "paypal/checkout", to: "subscriptions#paypal_checkout"
