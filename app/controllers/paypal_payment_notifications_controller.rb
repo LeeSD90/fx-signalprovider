@@ -11,11 +11,26 @@ class PaypalPaymentNotificationsController < ApplicationController
       ## Write to file?
       if params[:receiver_email] == ENV['PAYPAL_EMAIL']
         case params[:txn_type]
+        when "express_checkout"
+          # Initial checkout
+          # Send instructions for using the service?
+          # Maybe set up the subscription profile here instead?
+        when "recurring_payment"
+          # Payment recieved. Send notification of payment & next billing date?
+          # Update Subscription with next billing date
+        when "recurring_payment_profile_created"
+          # Verify that subscription exists
         when "recurring_payment_profile_cancel"
           subscription = Subscription.where(paypal_recurring_profile_token: params[:recurring_payment_id]).first
           subscription.destroy
-        when
+        when "recurring_payment_expired"
+        when "recurring_payment_failed"
+        when "recurring_payment_suspended"
+        when "recurring_payment_skipped"
+        when "recurring_payment_suspended_due_to_max_failed_payment"
         else
+          # Unhandled txn_type
+          # Log/Mail admin?
         end
       end
     when "INVALID"
