@@ -7,6 +7,7 @@ class PaypalPaymentNotificationsController < ApplicationController
     when "VERIFIED"
       ## Do verification stuff
       ## Check txn_types
+      ## CHECK TXN_ID IS NOT PREVIOUSLY PROCESSED
       ## Take action
       ## Write to file?
       if params[:receiver_email] == ENV['PAYPAL_EMAIL']
@@ -22,7 +23,9 @@ class PaypalPaymentNotificationsController < ApplicationController
           # Verify that subscription exists
         when "recurring_payment_profile_cancel"
           subscription = Subscription.where(paypal_recurring_profile_token: params[:recurring_payment_id]).first
-          subscription.destroy
+          if !subscription.nil?
+            subscription.destroy
+          end
         when "recurring_payment_expired"
         when "recurring_payment_failed"
         when "recurring_payment_suspended"
