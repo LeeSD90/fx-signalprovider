@@ -5,8 +5,7 @@ class PaypalPaymentNotificationsController < ApplicationController
     response = validate_IPN_notification(request.raw_post)
     case response
     when "VERIFIED"
-      puts request.inspect
-      puts request.txn_type
+      puts params[:txn_type]
       ## Do verification stuff
       ## Check txn_types
       ## Take action
