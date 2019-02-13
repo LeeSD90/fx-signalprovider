@@ -122,6 +122,28 @@ img#fx-logo.sm{
   margin-bottom: 10px;
 }
 
+#subscribe {
+  h2 {
+    margin-bottom: 20px;
+  }
+  h4 {
+    display: inline;
+  }
+  div {
+    display: block;
+  }
+  #paypal_checkout {
+    margin-top: 20px;
+  }
+  .loader {
+    display: none;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+
+
 @media only screen and (max-width: 768px){
   nav#navigation {
     ul#responsive {
