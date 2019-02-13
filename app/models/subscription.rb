@@ -1,5 +1,6 @@
 class Subscription < ApplicationRecord
   attr_accessor :paypal_payment_token
+  validates :paypal_recurring_profile_token, uniqueness: true
 
   belongs_to :user
   belongs_to :plan
