@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
   before_action :admin_only
   before_action :authenticate_user!, only: [:paypal_checkout, :show]
+  before_action :correct_user, only: [:show, :destroy]
   
   def new
     @plan = Plan.find_by_id(params[:plan_id])
@@ -18,12 +19,14 @@ class SubscriptionsController < ApplicationController
   end
 
   def show
-    if current_user.subscribed?
-      @subscription = current_user.subscription
-    else
-      flash[:error] = "You do not currently have an active subscription"
-      redirect_to signals_path
-    end
+    
+  end
+
+  def destroy
+    @subscription.cancel_with_paypal_payment
+    @subscription.destroy
+    flash[:success] = "You have successfully unsubscribed from the services"
+    redirect_to root_url
   end
 
   def paypal_checkout
@@ -34,5 +37,16 @@ class SubscriptionsController < ApplicationController
       cancel_url: root_url
     )
   end
+
+  private
+
+    def correct_user
+      @subscription = current_user.subscription
+
+      if @subscription.nil?
+        flash[:error] = "You do not currently have an active subscription"
+        redirect_to signals_path
+      end
+    end
 
 end
