@@ -19,6 +19,7 @@ class PaypalPaymentNotificationsController < ApplicationController
       ## Write to file?
       puts response.inspect
     else
+      puts "erorrrrrrrrrrrrrrrrrrerererE?"
       #error
     end
 
