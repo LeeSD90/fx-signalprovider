@@ -9,14 +9,16 @@
             <th>Plan Type</th>
             <th>Price</th>
             <th>Next Billing Date</th>
-            <th>Subscribed at</th>
+            <th>Expires on</th>
+            <th>Status</th>
           </tr>
 
           <tr>
             <td><%= @subscription.plan.name %></td>
             <td><%= @subscription.plan.currency_symbol + @subscription.plan.price.to_s %></td>
-            <td> TODO </td>
-            <td><%= @subscription.created_at %></td>
+            <td><%= @subscription.next_billing_date ? @subscription.next_billing_date : "N/A" %></td>
+            <td><%= @subscription.expires ? @subscription.next_billing_date : "Expired" %> </td>
+            <td><%= @subscription.status %></td>
           </tr>
 
 			  </table>
