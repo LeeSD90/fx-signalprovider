@@ -5,7 +5,7 @@ class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :plan
 
-  enum status: { inactive: 0, active: 1 }
+  enum status: { Inactive: 0, Active: 1 }
 
   def paypal
     PaypalPayment.new(self)
