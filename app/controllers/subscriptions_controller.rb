@@ -14,7 +14,7 @@ class SubscriptionsController < ApplicationController
       @subscription.paypal_customer_token = params[:PayerID]
       @subscription.paypal_payment_token = params[:token]
       @subscription.save_with_paypal_payment
-      flash.now[:success] = "You have successfully subscribed to the forex signalling service!"
+      flash.now[:success] = "You have successfully subscribed to our forex signalling service!"
     end
   end
 
@@ -25,7 +25,7 @@ class SubscriptionsController < ApplicationController
   def destroy
     @subscription.cancel_with_paypal_payment
     @subscription.destroy
-    flash[:success] = "You have successfully unsubscribed from the services"
+    flash[:success] = "You have successfully unsubscribed from our forex signalling service"
     redirect_to root_url
   end
 
