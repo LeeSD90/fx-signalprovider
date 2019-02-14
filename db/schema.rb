@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190213141621) do
+ActiveRecord::Schema.define(version: 20190214105400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20190213141621) do
     t.string "paypal_customer_token"
     t.string "paypal_recurring_profile_token"
     t.date "next_billing_date"
+    t.date "expires"
+    t.string "status"
     t.index ["paypal_recurring_profile_token"], name: "index_subscriptions_on_paypal_recurring_profile_token", unique: true
     t.index ["plan_id"], name: "index_subscriptions_on_plan_id"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
