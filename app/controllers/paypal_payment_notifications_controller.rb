@@ -16,21 +16,22 @@ class PaypalPaymentNotificationsController < ApplicationController
           if params[:payment_status] == "Completed"
             # Initial checkout
             # Send instructions for using the service?
-            # Maybe set up the subscription profile here instead?
-            # Possible issue whereby a signup immediately cancels before the subscription is charged? Shouldn't save anything until the first transaction is made?
           end
         when "recurring_payment"
           if params[:payment_status] == "Completed"
             # Payment recieved. Send notification of payment & next billing date?
             # Update Subscription with next billing date
+            subscription = get_subscription(params[:recurring_payment_id])
+            subscription.update_billing
           end
         when "recurring_payment_profile_created"
-          # Verify that subscription exists
+          # Verify that subscription exists?
+          subscription = get_subscription(params[:recurring_payment_id])
+          subscription.save
         when "recurring_payment_profile_cancel"
-          subscription = Subscription.where(paypal_recurring_profile_token: params[:recurring_payment_id]).first
-          if !subscription.nil?
-            subscription.cancel
-          end
+          # Verify that subscription exists?
+          subscription = get_subscription(params[:recurring_payment_id])
+          subscription.cancel
         when "recurring_payment_expired"
         when "recurring_payment_failed"
         when "recurring_payment_suspended"
@@ -67,5 +68,9 @@ class PaypalPaymentNotificationsController < ApplicationController
         'Content-Length' => "#{raw.size}",
         'User-Agent' => "Custom User Agent"
       ).body
+    end
+
+    def get_subscription(token)
+      Subscription.where(paypal_recurring_profile_token: token).first
     end
 end
