@@ -20,7 +20,7 @@ class PaypalPaymentNotificationsController < ApplicationController
         when "recurring_payment"
           if params[:payment_status] == "Completed"
             # Payment recieved. Send notification of payment & next billing date?
-            # Update Subscription with next billing date
+            # Verify that subscription exists?
             subscription = get_subscription(params[:recurring_payment_id])
             subscription.update_billing
           end
