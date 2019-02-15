@@ -23,7 +23,7 @@ class Subscription < ApplicationRecord
     save!
   end
 
-  def save
+  def activate
     self.expires = nil
     self.update_billing
     self.status = "Active"
