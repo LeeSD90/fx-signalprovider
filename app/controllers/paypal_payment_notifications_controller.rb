@@ -20,7 +20,7 @@ class PaypalPaymentNotificationsController < ApplicationController
         when "recurring_payment"
           if params[:payment_status] == "Completed"
             # Payment recieved. Send notification of payment & next billing date?
-            # Update Subscription with next billing date
+            # Verify that subscription exists?
             subscription = get_subscription(params[:recurring_payment_id])
             subscription.update_billing
           end
@@ -30,8 +30,9 @@ class PaypalPaymentNotificationsController < ApplicationController
           subscription.save
         when "recurring_payment_profile_cancel"
           # Verify that subscription exists?
-          subscription = get_subscription(params[:recurring_payment_id])
-          subscription.cancel
+          #subscription = get_subscription(params[:recurring_payment_id])
+          #subscription.cancel
+          subscription :cancel
         when "recurring_payment_expired"
         when "recurring_payment_failed"
         when "recurring_payment_suspended"
@@ -68,6 +69,15 @@ class PaypalPaymentNotificationsController < ApplicationController
         'Content-Length' => "#{raw.size}",
         'User-Agent' => "Custom User Agent"
       ).body
+    end
+
+    def subscription(action)
+      subscription = Subscription.where(paypal_recurring_profile_token: params[:recurring_payment_id]).first
+      if !subscription.nil?
+        subscription.action
+      else
+        # Do something
+      end
     end
 
     def get_subscription(token)
