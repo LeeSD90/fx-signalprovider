@@ -24,7 +24,6 @@ class SubscriptionsController < ApplicationController
 
   def destroy
     @subscription.cancel_with_paypal_payment
-    @subscription.destroy
     flash[:success] = "You have successfully unsubscribed from our forex signalling service"
     redirect_to root_url
   end
