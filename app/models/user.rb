@@ -9,4 +9,11 @@ class User < ApplicationRecord
   def subscribed?
     !self.subscription.nil?
   end
+
+  def after_database_authentication
+    if self.subscribed?
+      self.subscription.status = "Expired" if Date.today > self.subscription.expires
+    end
+  end
+
 end
