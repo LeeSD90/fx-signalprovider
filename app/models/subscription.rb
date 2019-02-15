@@ -21,10 +21,16 @@ class Subscription < ApplicationRecord
     self.status = "Inactive"
   end
 
+  def save
+    self.expires = nil
+    self.update_billing
+    self.status = "Active"
+  end
+  
   def cancel_with_paypal_payment
     if valid?
       response = paypal.cancel_recurring
-      self.cancel
+      ##self.cancel
       save!
     end
   end
@@ -33,8 +39,7 @@ class Subscription < ApplicationRecord
     if valid? && paypal_payment_token.present?
       response = paypal.make_recurring
       self.paypal_recurring_profile_token = response.profile_id
-      self.update_billing
-      self.status = "Active"
+      ##self.save
       save!
     end
   end
