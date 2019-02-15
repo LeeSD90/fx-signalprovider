@@ -43,7 +43,7 @@ class SubscriptionsController < ApplicationController
       @subscription = current_user.subscription
 
       if @subscription.nil?
-        flash[:error] = "You do not currently have an active subscription"
+        flash[:error] = "You do not currently have an existing subscription"
         redirect_to signals_path
       end
     end
