@@ -18,25 +18,22 @@ class PaypalPaymentNotificationsController < ApplicationController
             # Send instructions for using the service?
           end
         when "recurring_payment"
+          || "recurring_payment_profile_created"
           if params[:payment_status] == "Completed"
             # Payment recieved. Send notification of payment & next billing date?
             # Verify that subscription exists?
             subscription = get_subscription(params[:recurring_payment_id])
-            subscription.update_billing
+            subscription.activate
           end
-        when "recurring_payment_profile_created"
-          # Verify that subscription exists?
-          subscription = get_subscription(params[:recurring_payment_id])
-          subscription.save
         when "recurring_payment_profile_cancel"
+          || "recurring_payment_expired"
+          || "recurring_payment_failed"
+          || "recurring_payment_suspended"
+          || "recurring_payment_skipped"
+          || "recurring_payment_suspended_due_to_max_failed_payment"
           # Verify that subscription exists?
           subscription = get_subscription(params[:recurring_payment_id])
           subscription.cancel
-        when "recurring_payment_expired"
-        when "recurring_payment_failed"
-        when "recurring_payment_suspended"
-        when "recurring_payment_skipped"
-        when "recurring_payment_suspended_due_to_max_failed_payment"
         else
           # Unhandled txn_type
           # Log/Mail admin?
