@@ -16,6 +16,11 @@ class Subscription < ApplicationRecord
     save!
   end
 
+  def expire
+    self.subscription.status = "Expired"
+    save!
+  end
+
   def cancel
     self.expires = self.next_billing_date
     self.next_billing_date = nil
