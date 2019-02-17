@@ -19,7 +19,7 @@
 					<h3 class="title">Forex Signals</h3>
 					<span class="price">Starting at $<%= @plans.first.price %>/month</span>
 					<p>Etiam lobortis dolor eros sed lorem sodales imperdiet dapibus. Maecenas faucibus urna sed turpis lacinia consectetur. Mauris dolor bibendum nibh consectetuer.</p>
-					<% if current_user.subscription.status == "Expired" || !current_user.subscribed? %>
+					<% if !current_user.subscribed? || current_user.subscription.status == "Expired" %>
 						<%= form_tag new_subscription_path, method: "get" do %>
 							<%= select_tag 'plan_id', options_from_collection_for_select(@plans, :id, :name_with_price) %>
 							<%= submit_tag("Subscribe") %>
