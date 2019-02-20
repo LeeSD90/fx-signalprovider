@@ -3,6 +3,7 @@ class PaypalPaymentNotificationsController < ApplicationController
 
   def create
     response = validate_IPN_notification(request.raw_post)
+    ApplicationMailer.test_mail(ENV['ADMIN1_MAIL']).deliver
     case response
     when "VERIFIED"
       ## Do verification stuff
