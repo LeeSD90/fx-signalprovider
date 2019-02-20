@@ -3,6 +3,6 @@ class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
 
   def test_mail(email)
-    mail(to: email, subjhect: 'Test mail')
+    mail(to: email, subject: 'Test mail', body: 'Body Stuff')
   end
 end
