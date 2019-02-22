@@ -45,7 +45,7 @@ class PaypalPaymentNotificationsController < ApplicationController
         else
           # Unhandled txn_type
           # Log/Mail admin?
-          
+          ApplicationMailer.admin_mail("Unhandled TXN_TYPE", "Params - " + params.inspect).deliver
         end
       end
     when "INVALID"
