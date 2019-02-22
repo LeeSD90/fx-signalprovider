@@ -50,10 +50,10 @@ class PaypalPaymentNotificationsController < ApplicationController
       end
     when "INVALID"
       ## Write to file?
-      puts "Invalid response from IPN validator!"
+      ApplicationMailer.admin_mail("Invalid response", "Response - " + response + "\nParams - " + params.inspect).deliver
     else
       # Error
-      ApplicationMailer.admin_mail("IPN Error", "Response - " + response + "\nParams - " + params.inspect).deliver
+      ApplicationMailer.admin_mail("IPN Response Error", "Response - " + response + "\nParams - " + params.inspect).deliver
     end
 
     head :ok
