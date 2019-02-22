@@ -3,11 +3,9 @@ class PaypalPaymentNotificationsController < ApplicationController
 
   def create
     response = validate_IPN_notification(request.raw_post)
-    ApplicationMailer.test_mail(ENV['ADMIN1_MAIL']).deliver
     case response
     when "VERIFIED"
       ## Do verification stuff
-      ## Check txn_types
       ## CHECK TXN_ID IS NOT PREVIOUSLY PROCESSED
       ## Take action
       ## Write to file?
@@ -16,6 +14,7 @@ class PaypalPaymentNotificationsController < ApplicationController
         when "express_checkout"
           if params[:payment_status] == "Completed"
             # Initial checkout
+            # Figure out how exactly this works in relation to recurring_payment_profile_created
             # Send instructions for using the service?
           end
         when "recurring_payment",
@@ -24,7 +23,11 @@ class PaypalPaymentNotificationsController < ApplicationController
             # Payment recieved. Send notification of payment & next billing date?
             # Verify that subscription exists?
             subscription = get_subscription(params[:recurring_payment_id])
-            subscription.activate
+            if !subscription.nil?
+              subscription.activate
+            else
+
+            end
           end
         when "recurring_payment_profile_cancel",
              "recurring_payment_expired",
@@ -34,18 +37,22 @@ class PaypalPaymentNotificationsController < ApplicationController
              "recurring_payment_suspended_due_to_max_failed_payment"
           # Verify that subscription exists?
           subscription = get_subscription(params[:recurring_payment_id])
-          subscription.cancel
+          if !subscription.nil?
+            subscription.cancel
+          else
+
+          end
         else
           # Unhandled txn_type
           # Log/Mail admin?
+          
         end
       end
     when "INVALID"
       ## Write to file?
       puts "Invalid response from IPN validator!"
     else
-      puts "Error!"
-      #error
+      # Error
     end
 
     head :ok
