@@ -53,6 +53,7 @@ class PaypalPaymentNotificationsController < ApplicationController
       puts "Invalid response from IPN validator!"
     else
       # Error
+      ApplicationMailer.admin_mail("IPN Error", "Response - " + response + "\nParams - " + params.inspect).deliver
     end
 
     head :ok
