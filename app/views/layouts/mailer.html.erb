@@ -3,11 +3,40 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+      body {
+        background-color: #fafafa;
+      }
+      .divider {
+        width: 100%;
+        background-color: grey;
+        height: 1px;
+      }
+      #title {
+        background-color: #6dc6dd;
+        color: white;
+        text-align: center;
+      }
+      #container {
+        width: 50%;
+        margin: auto;
+      }
+      footer {
+        text-align: center;
+      }
     </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="divider"></div>
+    <%= email_image_tag("fxlogo.png") %>
+    <div id="title"></div>
+    <div id="container">
+      <div class="divider"></div>
+      <%= yield %>
+      <div class="divider"></div>
+    </div>
+    <footer>
+      © Copyright 2019 by <a href="www.fx-signalprovider.com">fx-signalprovider.com</a>. All Rights Reserved.
+    </footer>
   </body>
 </html>
