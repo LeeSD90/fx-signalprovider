@@ -4,6 +4,6 @@ class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
 
   def admin_mail(subject, body)
-    mail(to: ENV['ADMIN1_MAIL']ENV['ADMIN1_MAIL'], subject: subject, body: body)
+    mail(to: ENV['ADMIN1_MAIL'], subject: subject, body: body)
   end
 end
