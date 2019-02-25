@@ -1,5 +1,5 @@
-class ApplicationMailerPreview < ActionMailer::Preview
+class AdminMailerPreview < ActionMailer::Preview
   def admin_mail
-    ApplicationMailer.admin_mail("test", "tesstttt")
+    AdminMailer.admin_mail("test", "tesstttt")
   end
 end
