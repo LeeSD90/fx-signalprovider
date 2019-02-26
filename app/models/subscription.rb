@@ -12,7 +12,7 @@ class Subscription < ApplicationRecord
   end
 
   def update_billing
-    self.next_billing_date = Time.now + (self.plan.duration).month
+    self.next_billing_date = Date.current + (self.plan.duration).month
     save!
   end
 
