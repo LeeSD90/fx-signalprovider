@@ -11,9 +11,7 @@ class User < ApplicationRecord
   end
 
   def after_database_authentication
-    if self.subscribed?
-      self.subscription.expire if Date.today > self.subscription.expires
-    end
+    self.subscription.check_expiry if self.subscribed?
   end
 
 end

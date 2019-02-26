@@ -16,6 +16,10 @@ class Subscription < ApplicationRecord
     save!
   end
 
+  def check_expiry
+    self.expire if Date.today > self.expires
+  end
+
   def expire
     self.subscription.status = "Expired"
     save!
