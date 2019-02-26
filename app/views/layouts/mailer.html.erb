@@ -5,23 +5,46 @@
     <style>
       body {
         background-color: #fafafa;
+        margin: 0;
       }
       .divider {
         width: 100%;
-        background-color: grey;
+        background-color: #cccccc;
         height: 1px;
+        margin-top: 25px;
+        margin-bottom: 25px;
       }
       #title {
+        display: flex;
         background-color: #6dc6dd;
-        color: white;
         text-align: center;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+      }
+      #subject {
+        color: white;
+        font-size: 18px;
+        font-family: Helvetica;
+        line-height: 150%;
       }
       #container {
         width: 50%;
         margin: auto;
+        color: #202020;
+        font-size: 15px;
+        line-height: 150%;
+        font-family: Helvetica;
       }
       footer {
         text-align: center;
+        color: #808080;
+        font-family: Helvetica;
+        font-size: 11px;
+        line-height: 125%;
+      }
+      footer a {
+        color: #808080;
       }
     </style>
   </head>
@@ -29,7 +52,7 @@
   <body>
     <div class="divider"></div>
     <%= email_image_tag("fxlogo.png") %>
-    <div id="title"></div>
+    <div id="title"><div id="subject"><%= @subject.capitalize %></div></div>
     <div id="container">
       <div class="divider"></div>
       <%= yield %>
