@@ -17,7 +17,7 @@ class Subscription < ApplicationRecord
   end
 
   def check_expiry
-    self.expire if Date.today > self.expires
+    self.expire if Date.today > Date.new(self.expires)
   end
 
   def expire
