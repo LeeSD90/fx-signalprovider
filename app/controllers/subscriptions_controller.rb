@@ -28,6 +28,12 @@ class SubscriptionsController < ApplicationController
     redirect_to root_url
   end
 
+  def instructions
+    if current_user.subscribed? && !current_user.subscription.Expired?
+      AdminMailer.admin_mail("stuff", "other stuff").deliver
+    end
+  end
+
   def paypal_checkout
     plan = Plan.find(params[:plan_id])
     subscription = plan.subscriptions.build

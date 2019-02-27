@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/unsubscribe', to: "subscriptions#destroy"
   get "/subscription", to: "subscriptions#show"
+  get "/instructions", to: "subscriptions#instructions"
   get "/signals", to: "shop#signals"
   get "/services", to: "shop#services"
   get "paypal/checkout", to: "subscriptions#paypal_checkout"
