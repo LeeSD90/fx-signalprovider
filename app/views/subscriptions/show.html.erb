@@ -23,8 +23,10 @@
 
 			  </table>
 
-        <%= link_to "Change Your Plan", subscription_path, :class => "button color" %>
-        <% if @subscription.Active? %> <%= link_to "Cancel Your Subscription", unsubscribe_path, :class => "button light" %> <% end %>
+        <% if @subscription.Active? %> 
+          <%= link_to "Cancel Your Subscription", unsubscribe_path, :class => "button light" %> 
+          <%= link_to "Resend Service Instructions", :class => "button color" %>
+        <% end %>
         
     </div>
   </div>
