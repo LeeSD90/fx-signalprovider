@@ -17,6 +17,8 @@
       #title {
         background-color: #6dc6dd;
         height: 50px;
+        margin-top: 25px;
+        margin-bottom: 25px;
       }
       #title table {
         width: 100%;
@@ -39,6 +41,11 @@
         line-height: 150%;
         font-family: Helvetica;
       }
+      #logo {
+        height: auto;
+        width: 180px;
+        margin: auto;
+      }
       footer {
         text-align: center;
         color: #808080;
@@ -54,7 +61,7 @@
 
   <body>
     <div class="divider"></div>
-    <%= email_image_tag("fxlogo.png") %>
+    <div id="logo"><%= email_image_tag("fxlogo.png") %></div>
     <div id="title"><table><tbody><tr><td style="vertical-align:middle"><div id="subject"><%= @subject.capitalize %></div></td></tr></tbody></table></div>
     <div id="container">
       <div class="divider"></div>
