@@ -23,9 +23,9 @@
 
 			  </table>
 
+        <%= link_to "Resend Service Instructions", instructions_path, :remote => true, :class => "button color" %>
         <% if @subscription.Active? %> 
           <%= link_to "Cancel Your Subscription", unsubscribe_path, :class => "button light" %> 
-          <%= link_to "Resend Service Instructions", instructions_path, :remote => true, :class => "button color" %>
         <% end %>
         
     </div>
