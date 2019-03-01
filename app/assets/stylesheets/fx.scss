@@ -144,6 +144,23 @@ img#fx-logo.sm{
 
 
 
+#devise-content {
+  h3 {
+    margin-top: 1.5rem;
+  }
+  .input .hint {
+    color: rgb(155, 155, 155);
+    font-size: 0.75rem;
+  }
+  .error_notification {
+    color: rgb(196, 0, 0);
+    margin-bottom: 0.5rem;
+  }
+  .error {
+    display: block;
+  }
+}
+
 @media only screen and (max-width: 768px){
   nav#navigation {
     ul#responsive {
