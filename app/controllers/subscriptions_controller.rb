@@ -28,9 +28,10 @@ class SubscriptionsController < ApplicationController
     redirect_to root_url
   end
 
+  # TODO, add instruction mail
   def instructions
     if current_user.subscribed? && !current_user.subscription.Expired?
-      AdminMailer.admin_mail("stuff", "other stuff").deliver
+      AdminMailer.admin_mail("User service instruction mail", "Instructions and stuff go here").deliver
     end
   end
 
