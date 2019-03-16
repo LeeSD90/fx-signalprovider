@@ -11,17 +11,15 @@ class PaypalPaymentNotificationsController < ApplicationController
       ## Write to file?
       if params[:receiver_email] == ENV['PAYPAL_EMAIL']
         case params[:txn_type]
+        when "recurring_payment_profile_created"
+            # Profile created, recurring_payment follows shortly. Send instruction mail here?
         when "express_checkout"
           if params[:payment_status] == "Completed"
-            # Initial checkout
-            # Figure out how exactly this works in relation to recurring_payment_profile_created
-            # Send instructions for using the service?
+            # Initial new subscription checkout payment
           end
-        when "recurring_payment",
-             "recurring_payment_profile_created"
+        when "recurring_payment"
           if params[:payment_status] == "Completed"
             # Payment recieved. Send notification of payment & next billing date?
-            # Verify that subscription exists?
             subscription = get_subscription(params[:recurring_payment_id])
             if !subscription.nil?
               subscription.activate
@@ -35,9 +33,9 @@ class PaypalPaymentNotificationsController < ApplicationController
              "recurring_payment_suspended",
              "recurring_payment_skipped",
              "recurring_payment_suspended_due_to_max_failed_payment"
-          # Verify that subscription exists?
           subscription = get_subscription(params[:recurring_payment_id])
           if !subscription.nil?
+            # Send cancel email
             subscription.cancel
           else
 
@@ -50,10 +48,10 @@ class PaypalPaymentNotificationsController < ApplicationController
       end
     when "INVALID"
       ## Write to file?
-      ApplicationMailer.admin_mail("Invalid response", "Response - " + response + "\nParams - " + params.inspect).deliver
+      ApplicationMailer.admin_mail("Invalid IPN response", "Response - " + response + "\nParams - " + params.inspect).deliver
     else
       # Error
-      ApplicationMailer.admin_mail("IPN Response Error", "Response - " + response + "\nParams - " + params.inspect).deliver
+      ApplicationMailer.admin_mail("IPN Error", "Response - " + response + "\nParams - " + params.inspect).deliver
     end
 
     head :ok
